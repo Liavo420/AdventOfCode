@@ -4,7 +4,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DayTwoPolo {
+public class DayTwo {
 
     static List<List<Integer>> getInputFromFile() {
         List<List<Integer>> input = new ArrayList<>();
@@ -51,6 +51,17 @@ public class DayTwoPolo {
     public static void main(String[] args) {
         var input = getInputFromFile();
         int countOfSafeReports = 0;
+        //part 1:
+
+        for (List<Integer> report : input) {
+            if (checkSafety(report))
+                countOfSafeReports++;
+        }
+
+        System.out.println("Safe reports part 1 : " + countOfSafeReports);
+        countOfSafeReports = 0;
+
+        //part 2:
         for (List<Integer> report : input) {
             boolean isSafe = checkSafety(report);
             if (isSafe) {
@@ -66,7 +77,7 @@ public class DayTwoPolo {
                 }
             }
         }
-        System.out.println(countOfSafeReports);
+        System.out.println("Safe reports part 2 : " + countOfSafeReports);
     }
 }
 
